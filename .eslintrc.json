@@ -17,6 +17,7 @@
     "quotes": 0,
     "import/no-unresolved": "off",
     "space-before-function-paren": "off",
-    "func-names": "off"
+    "func-names": "off",
+    "object-curly-newline": "off"
   }
 }

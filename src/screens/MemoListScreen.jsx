@@ -14,7 +14,7 @@ export default function MemoListScreen() {
       {/* Main */}
       <MemoList />
       {/* Add Btn */}
-      <CicleButton>+</CicleButton>
+      <CicleButton name="plus" />
     </View>
   );
 }
