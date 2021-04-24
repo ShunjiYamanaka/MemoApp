@@ -13,6 +13,10 @@
   },
   "plugins": ["react"],
   "rules": {
-    "no-use-before-define": 0
+    "no-use-before-define": 0,
+    "quotes": 0,
+    "import/no-unresolved": "off",
+    "space-before-function-paren": "off",
+    "func-names": "off"
   }
 }
