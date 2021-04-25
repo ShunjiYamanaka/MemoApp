@@ -7,21 +7,36 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import AppBar from "../components/AppBar";
 import Button from "../components/Button";
 
-export default function LogIInScreen() {
+export default function LogIInScreen(props) {
+  const { navigation } = props;
   return (
     <View style={styles.container}>
-      <AppBar />
       <View style={styles.inner}>
         <Text style={styles.title}>Login</Text>
         <TextInput style={styles.input} value="Email address" />
         <TextInput style={styles.input} value="Password" />
-        <Button label="Submit" />
+        <Button
+          label="Submit"
+          onPress={() => {
+            // Backを表示したくないので履歴0ページの移動元を定義
+            navigation.reset({
+              index: 0,
+              routes: [{ name: "MemoList" }],
+            });
+          }}
+        />
         <View style={styles.footer}>
           <Text style={styles.footerText}>Not registered?</Text>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: "SignUp" }],
+              });
+            }}
+          >
             <Text style={styles.footerLink}>Sign up here!</Text>
           </TouchableOpacity>
         </View>

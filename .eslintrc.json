@@ -21,6 +21,7 @@
     "object-curly-newline": "off",
     "comma-dangle": "off",
     "indent": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "react/prop-types": ["error", { "ignore": ["navigation"] }]
   }
 }
