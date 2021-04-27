@@ -24,7 +24,7 @@ export default function MemoListScreen(props) {
       <CicleButton
         name="plus"
         onPress={() => {
-          navigation.navigate("MemoDetail");
+          navigation.navigate("MemoCreate");
         }}
       />
     </View>
