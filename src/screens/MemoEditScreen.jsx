@@ -68,10 +68,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   inputContainer: {
-    // 横
-    paddingHorizontal: 27,
-    // 縦
-    paddingVertical: 32,
     // 親コンポーネント
     flex: 1,
   },
@@ -80,5 +76,9 @@ const styles = StyleSheet.create({
     textAlignVertical: "top",
     fontSize: 16,
     lineHeight: 24,
+    paddingTop: 32,
+    paddingBottom: 32,
+    // 横
+    paddingHorizontal: 27,
   },
 });
