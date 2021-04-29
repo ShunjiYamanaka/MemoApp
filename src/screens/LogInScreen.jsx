@@ -10,11 +10,13 @@ import {
 import firebase from "firebase";
 
 import Button from "../components/Button";
+import Loading from "../components/Loading";
 
 export default function LogIInScreen(props) {
   const { navigation } = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setLoading] = useState(true);
 
   // useEffect ログインスクリーンを実行した時に実行する
   useEffect(() => {
@@ -26,6 +28,8 @@ export default function LogIInScreen(props) {
           index: 0,
           routes: [{ name: "MemoList" }],
         });
+      } else {
+        setLoading(false);
       }
     });
     // ログインスクリーンがアンマウントされる瞬間に、ユーザの監視状態をキャンセルする
@@ -33,6 +37,7 @@ export default function LogIInScreen(props) {
   }, []); // ログインスクリーンが表示された初回のみ配列を監視する
 
   function handlePress() {
+    setLoading(true);
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
@@ -46,11 +51,15 @@ export default function LogIInScreen(props) {
       })
       .catch((error) => {
         Alert.alert(error.code);
+      })
+      .then(() => {
+        setLoading(false);
       });
   }
 
   return (
     <View style={styles.container}>
+      <Loading isLoading={isLoading} />
       <View style={styles.inner}>
         <Text style={styles.title}>Login</Text>
         <TextInput
