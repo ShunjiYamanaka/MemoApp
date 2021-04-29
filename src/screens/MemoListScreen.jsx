@@ -35,7 +35,6 @@ export default function MemoListScreen(props) {
         (snapshot) => {
           const userMemos = [];
           snapshot.forEach((doc) => {
-            console.log(doc.id, doc.data());
             const data = doc.data();
             userMemos.push({
               id: doc.id,
@@ -43,18 +42,15 @@ export default function MemoListScreen(props) {
               updatedAt: data.updatedAt.toDate(),
             });
           });
-          console.log(userMemos);
           setMemos(userMemos);
           setLoading(false);
         },
-        (error) => {
-          console.log(error);
+        () => {
           setLoading(false);
-          Alert.alert("データの読み込みに失敗しました");
+          Alert.alert("データの読み込みに失敗しました？");
         }
       );
     }
-
     return unsubscribe;
   }, []);
 
