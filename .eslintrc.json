@@ -22,6 +22,7 @@
     "comma-dangle": "off",
     "indent": "off",
     "operator-linebreak": "off",
-    "react/prop-types": ["error", { "ignore": ["navigation"] }]
+    "react/prop-types": ["error", { "ignore": ["navigation"] }],
+    "import/prefer-default-export": 0
   }
 }
